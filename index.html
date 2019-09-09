@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+      <div class="warrper">
+          <h1 class="text-center">Learn Jquery</h1>
+          <h2 class="heading text-center">This me before change</h2>
+          <h3>Append</h3>
+      </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>
+        
+        //Hàm thay cho Doucument.read là $(function(){}) có nghĩa ready luôn và viết luôn trong function
+        $(function() {//Dòng này có nghĩa đợi trang ready đã
+            //get Element
+            var warrperJs=document.getElementsByClassName('warrper');
+            var warrperJquery=$('.warrper');
+
+            var tagNameJs=document.getElementsByTagName('div');
+            var tagNameJquert=$('div');
+
+            var childJs=document.querySelectorAll('.warrper h3');
+            var childJquery=$('.warrper h3');
+
+            //DOM css
+            childJquery.css('color','gray');
+            childJquery.css({
+                fontSize: '18px',
+                textTransform:'uppercase'
+            })
+
+            //innerHTML trong jquery
+            console.log(tagNameJquert.html())
+            
+            // hay đổi nội dung trong elemet: .innerHTML='<h2 style="color=red">Change text after use Jquery</h2>'
+            $('.heading').html('<h2 style="color=red">Change text after use Jquery</h2>')
+
+            //Append:
+            //Nó tìm thẻ h3  và thêm vào thẻ h3 đó 1 thẻ h3 khác có nội dung ở dưới
+            $('h3').append('<h3  style="color: aqua">Append use Jquery</h3>');
+        })
+    </script>
+  </body>
+</html>
