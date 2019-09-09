@@ -13,12 +13,12 @@
       <div class="warrper">
           <h1 class="text-center">Learn Jquery</h1>
           <h2 class="heading text-center">This me before change</h2>
-          <h3>Append</h3>
+          <h3 style="" class="get attribute">Append</h3>
+          <input class="fullname" type="text" name="" value="He" id="remove-id">
+          <button class="btn btn-warning">Click me</button>
       </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script>
-        
-        //Hàm thay cho Doucument.read là $(function(){}) có nghĩa ready luôn và viết luôn trong function
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>      <script>
+       //Hàm thay cho Doucument.read là $(function(){}) có nghĩa ready luôn và viết luôn trong function
         $(function() {//Dòng này có nghĩa đợi trang ready đã
             //get Element
             var warrperJs=document.getElementsByClassName('warrper');
@@ -45,7 +45,60 @@
 
             //Append:
             //Nó tìm thẻ h3  và thêm vào thẻ h3 đó 1 thẻ h3 khác có nội dung ở dưới
-            $('h3').append('<h3  style="color: aqua">Append use Jquery</h3>');
+            $('h3').append('<h3  style="color: aqua">Append use Jquery 1</h3>');
+            $('h3').append('<h3  style="color: blue">Append use Jquery 2</h3>');
+
+            //get input values: js element.value
+            alert( $('.fullname').val());
+
+            //set input value
+            $('.fullname').val('new values');
+
+            //add remove class
+            $('.warrper').addClass('color-red');
+            $('.warrper').removeClass('color-red');
+
+            //get and set attribute and reomve attr
+            console.log($('h3').attr('tille','test attribute'));
+            console.log($('h3').attr('class'));
+            $('.fullname').removeAttr('id');
+
+            //fadeIn fadeOut
+            // $('h3').fadeIn(3000); hiện ra sau 3 giây
+            // $('h1').fadeOut(3000); ẩn đi sau 3 s
+
+            //add Listenner
+            $('.btn').click(function(){
+              alert('Hello');
+            })
+            $('h3').dblclick(function(){//sự kiện click 2 đúp
+              alert('Hello double');
+            }) 
+            //C2:  $('.btn').on('click',function(){ alert('Hello');})
+
+            //ajax
+            /**
+            *Trong js thì phải new ra XTML rồi open, send thì ở jquery nó có 1 phương thức là ajax sẽ làm tất việc 
+            */
+            $.ajax({
+              type:'get',//hoặc post, put....
+              url:'https://learnwebcode.github.io/json-example/animals-1.json',
+              dataType: 'json',
+              success: function (respons,status) {//nếu thành công thì chạy vào đây
+                console.log(respons);//respon là giá trị trả về từ api như js dùng this.responseText để lấy về
+                for(var respon of respons){
+                  //k cần JSON.parser(respons) như js
+                  console.log(respon)
+                }
+              },
+              error: function(err) {//lõi thì chạy vào đây
+                console.log(err);
+              }
+            })
+            //each: tham số 1 là một mảng hoặc obj tham số 2 là 1 function gồm 2 tham số key value để each lặp qua từng key và value của arr hoặc obj truyền vào
+            $.each({'name':'Selena','age':'19','Number':19940},function (key,value) {
+              console.log("Key= ",key," Value= ", value);
+            })
         })
     </script>
   </body>
