@@ -26,6 +26,10 @@
       <div class="btn btn-success" id="go-to-top"> Go to top</div>
 
       <!-- Sprite javascript -->
+      <!-- frame là biến lưu số vòng chạy trên 1 s. càng lớn chạy càng nhanh
+            max lưu tổng số hình ảnh của hình đó.
+            loop là số lần lặp
+         -->
       <div 
       class="sprite",
       image="https://scontent.fhan3-3.fna.fbcdn.net/v/t39.1997-6/p235x165/10935990_1435018736789083_1140897395_n.png?_nc_cat=101&_nc_oc=AQm-AEi3UvhZ4BI4Jox9zGOVzH-m32KJrbCh87_81d7OQ9wmbuZ9W8n0VIKnqmGZ-LQ&_nc_ht=scontent.fhan3-3.fna&oh=a31bf6f21b8e622eefd4ab154c744016&oe=5DFD6EE2"
@@ -35,11 +39,21 @@
       row="3"
       loop="8"
       max="8"
-      frame="24"
-      ></div>
-
-    <script src="./sprite.js"></script>  
+      frame="10"
+      ></div> 
+      <div 
+      class="sprite",
+      image="https://www.codeandweb.com/blog/2014/11/05/animate-sprites-in-css-with-texturepacker/capguy-walk.png"
+      width="70"
+      height="70"
+      columns="8"
+      row="1"
+      loop="8"
+      max="8"
+      frame="10"
+      ></div> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+    <script src="./sprite.js"></script> 
     <script>
         $(function() {
             getData();
